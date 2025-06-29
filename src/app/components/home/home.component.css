@@ -1,0 +1,50 @@
+form { 
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+table {
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  border-color:#dbd5d5;
+  padding: 10px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td#Total_timeTd,
+th#Total_timeTh,
+td#ActionTd,
+th#ActionTh {
+  text-align: center;
+  vertical-align: middle;
+}
+
+th#Nameth,
+td#Nametd {
+  text-align: left;
+  vertical-align: middle;
+}
+
+a {
+  color: #1a73e8;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 14px;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.red-row {
+  background-color: #f4ad9c; 
+}
+
