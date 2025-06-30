@@ -6,6 +6,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { HomeComponent } from './components/home/home.component'; 
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
+import { BaseChartDirective } from "ng2-charts";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [ 
@@ -15,6 +17,8 @@ import { FormsModule } from "@angular/forms";
   ],
   imports: [
     BrowserModule,
+    BaseChartDirective,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,

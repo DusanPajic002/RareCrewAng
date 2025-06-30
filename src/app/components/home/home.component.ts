@@ -8,20 +8,27 @@ import { User, UserResponse } from '../types/allTypes';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  
+
   users: User[] = [];
+  loading: boolean = false;
 
   constructor(private authService: AuthService) { }
-
   ngOnInit(): void {
+    this.loading = true;
     this.authService.getUsers().subscribe((data) => {
-      const resp = data as UserResponse[];
-      console.log(resp);
-      if (resp == null || resp.length == 0) {
-        alert("No data found");
+      try {
+        const resp = data as UserResponse[];
+        if (resp == null || resp.length == 0)
+          throw new Error("No data received from server");
+        this.addUsers(resp); 
+      } catch (error) {
+        console.error("Error processing data:", error);
+        alert("An error occurred while processing data. Please try again later.");
         return;
+      } finally {
+        this.loading = false;
       }
-      this.addUsers(resp);
+      
     });
   }
 
@@ -43,12 +50,7 @@ export class HomeComponent {
       return acc;
     }, {} as Record<string, User>);
 
-    this.users = Object.values(userMap)
-      .map((user, index) => ({
-        ...user,
-        Id: index + 1
-      }))
-      .sort((a, b) => b.Total_time - a.Total_time);
+    this.users = Object.values(userMap).sort((a, b) => b.Total_time - a.Total_time);
   }
 
   getHoursDiff(startTimeUtc: string, endTimeUtc: string) {
@@ -63,6 +65,6 @@ export class HomeComponent {
 
     return diffH;
   }
-  
+
 
 }

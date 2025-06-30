@@ -1,21 +1,30 @@
-<form>
-  <div>
-    <table>
-      <thead>
-        <tr> 
-          <th id="Nameth">Name</th>
-          <th id="Total_timeTh">Total time in Month</th>
-          <th id="ActionTh">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users" [ngClass]="{'red-row': user.Total_time < 100}">
-          <td id="Nametd">{{user.Name}}</td>
-          <td id="Total_timeTd">{{user.Total_time.toFixed(0)}} hrs</td>
-          <td id="ActionTd"><a [href]="'/user-details/' + user.Id">Edit</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
+<form> 
+  <ng-container *ngIf="!loading; else loadingTemplate">
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th id="Nameth">Name</th>
+            <th id="Total_timeTh">Total time in Month</th>
+            <th id="ActionTh">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users" [ngClass]="{'red-row': user.Total_time < 100}">
+            <td id="Nametd">{{user.Name}}</td>
+            <td id="Total_timeTd">{{user.Total_time.toFixed(0)}} hrs</td>
+            <td id="ActionTd"><a [routerLink]="['/user-details', user.Id]">Edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+    <pie-chart [users]="users"></pie-chart>
+  </ng-container>
+ 
+  <ng-template #loadingTemplate>
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <p>Loading data...</p>
+    </div>
+  </ng-template>
 </form>
