@@ -12,7 +12,7 @@ Open your terminal and change the directory to the root of this project, where t
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2. Build the Docker Image:
-Run the following command to build the Docker image. This will read the `Dockerfile`, download the necessary .NET dependencies, and package the application.
+Run the following command to build the Docker image. This will read the `Dockerfile`, download the necessary dependencies, and package the application.
   docker build -t rarecrew-task .
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
