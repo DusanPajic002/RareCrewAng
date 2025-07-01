@@ -1,0 +1,16 @@
+# Docker and Git files
+Dockerfile
+.dockerignore
+.git
+.gitignore
+
+# Node dependencies
+node_modules
+
+# Angular build artifacts and cache
+dist
+.angular
+
+# IDE and OS-specific files
+.idea
+.vscode

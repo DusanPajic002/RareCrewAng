@@ -1,4 +1,4 @@
 export const environment = { 
-  apiUrl: 'https://rc-vault-fap-live-1.azurewebsites.net/api/gettimeentries',
+  apiUrl: '/api/gettimeentries',
   apiKey: 'vO17RnE8vuzXzPJo5eaLLjXjmRW07law99QTD90zat9FfOQJKKUcgQ=='
 };
